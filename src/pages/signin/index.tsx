@@ -24,7 +24,7 @@ const Signin = () => {
 		resolver: yupResolver(schema), 	
 		mode: 'onChange',	});
 
-	const onSubmit = async (formData) => {
+	const onSubmit = async (formData: any) => {
 		try {
 			const { data } = await api.get(
 				`/users?email=${formData.email}&password=${formData.password}`
@@ -38,7 +38,7 @@ const Signin = () => {
 			alert('Usuário ou senha inválido');
 
 		} catch (e) {
-			alert('Houve um erro ao realizar o login', e);
+			alert('Houve um erro ao realizar o login' + e);
 		}
 
 	};
