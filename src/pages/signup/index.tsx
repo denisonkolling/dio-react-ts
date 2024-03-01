@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom';
 import { MdEmail, MdLock, MdPerson } from 'react-icons/md';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
@@ -10,6 +9,7 @@ import * as yup from 'yup';
 import { api } from '../../services/api'
 
 import {	Container,	Title,	Column,	TitleLogin,	SubtitleLogin,	EsqueciText,	CriarText,	Row,	Wrapper,} from './styles';
+import { IFormData } from '../signin/types';
 
 const schema = yup.object({
 	email: yup.string().email('Email não é válido').required('Campo obrigatório.'),
@@ -18,20 +18,19 @@ const schema = yup.object({
 
 const Signup = () => {
 
-	const navigate = useNavigate();
-
-	const { control, handleSubmit, formState: { errors, isValid },	} = useForm({ 
+	const { control, handleSubmit, formState: { errors }	} = useForm<IFormData>({ 
 		resolver: yupResolver(schema), 	
 		mode: 'onChange',	});
 
-	const onSubmit = async (formData) => {
+	const onSubmit = async (formData: IFormData) => {
 		
 		try {
 			const response = await api.post( '/users', formData);
 			console.log(response.data)
 
 		} catch (e) {
-			alert('Houve um erro ao realizar o login', e);
+			alert('Houve um erro ao realizar o login' + e );
+
 		}
 
 	};
