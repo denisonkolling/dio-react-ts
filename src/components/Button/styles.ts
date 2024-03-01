@@ -11,6 +11,7 @@ export const ButtonContainer = styled.button<IButtonStyled>`
 	padding: 2px 12px;
 	min-width: 120px;
 	width: 100%;
+	margin: 18px;
 
 	&:hover {
 				opacity: 0.6;

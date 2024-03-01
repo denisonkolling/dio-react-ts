@@ -1,10 +1,8 @@
-export interface IInput {
-  leftIcon: any, 
+import React from "react";
+
+export interface IInput extends React.InputHTMLAttributes<HTMLInputElement>{
+  leftIcon?: React.ReactNode, 
   name: string, 
   control: any, 
-  errorMessage: string | undefined, 
-  rest: any,
-  placeholder: any,
-  Type: any,
-  type: string,
+  errorMessage?: string
 }

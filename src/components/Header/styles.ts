@@ -31,7 +31,7 @@ export const Column = styled.div`
 export const Wrapper = styled.div`
   background-color: #151515;
   width: 100%;
-  height: 47px;
+  height: 57px;
   display: flex;
   justify-content: center;
   align-items: center;
